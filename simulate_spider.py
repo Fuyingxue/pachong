@@ -53,7 +53,7 @@ def cached_url(url):
 
 def item_from_div(div):
     """
-    从一个 div 里面获取到一个电影信息
+    从一个 div 里面获取到一个信息
     """
     e = pq(div)
 
@@ -67,10 +67,11 @@ def item_from_div(div):
 
 def item_from_url(url):
     """
-    从 url 中下载网页并解析出页面内所有的电影
+    从 url 中下载网页并解析出页面内所有的信息
     """
     page = cached_url(url)
     e = pq(page)
+    # 所有信息 div的 父节点
     items = e(".post_box")
     return [item_from_div(i) for i in items]
 
